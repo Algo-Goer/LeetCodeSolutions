@@ -1,24 +1,26 @@
-/*
- * @lc app=leetcode.cn id=1 lang=c
- *
- * [1] 两数之和
- */
 
-// @lc code=start
-
-
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-int* twoSum(int* nums, int numsSize, int target, int* returnSize)
+int dayOfYear(char * date)  // char为指向字符串的指针，字符串转换为int用atoi()
 {
-    scanf("%d %d", &nums[numsSize], &target);
-    for (int i = 0; i < numsSize; i++)
+    int year = atoi(date);
+    int month = atoi(date + 5);
+    int day = atoi(date + 8);
+    int sumDay = 0;
+    int ans = 0;
+    scanf("%04d-%02d-%02d", &year, &month, &day);
+    int ar[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    for (int i = 0; i < month; i++)
     {
-        int j = target - nums[i];
-        if (j )
+        sumDay += ar[i];
     }
-
+    ans += day + sumDay;
+    if (year % 400 == 0 && year % 100 == 0 && month > 2)   // 闰年，2000年那种
+    {
+        ans += 1;
+    }
+    if (year % 100 != 0 && year % 4 == 0 && month > 2) // 闰年，2004年那种
+    {
+        ans += 1;
+    } 
+    return ans;
 }
-// @lc code=end
 
