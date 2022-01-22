@@ -14,7 +14,7 @@ from typing import *
 # 空间复杂度O(n)：输出大小为n的数组
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
-        ans = []
+        ans = [] # 初始化一个空答案列表
         for i in range (1, n + 1):  # 必须是n + 1，否则对n不会输出判断结果
             s = ""
             if i % 3 == 0:
