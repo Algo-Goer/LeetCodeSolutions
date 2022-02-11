@@ -10,9 +10,6 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
 int gcd(int x, int y)
 {
     int t;
