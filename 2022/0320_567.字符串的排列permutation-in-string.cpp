@@ -32,7 +32,7 @@ public:
         }
         if (cnt1 == cnt2)
             return true;
-        for (int i = 1; i < s2.size() - n + 1; ++i)
+        for (int i = 1; i < s2.size() - n + 1; ++i)  // i < s2.size() - n + 1 表示滑动窗口的长度固定为n
         {
             cnt2[s2[i - 1] - 'a']--;
             cnt2[s2[i + n - 1] - 'a']++;

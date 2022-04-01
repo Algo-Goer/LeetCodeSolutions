@@ -28,7 +28,7 @@ public:
         {
             for (int j = 9; j > nums[i] - '0'; --j)
             {
-                if (m.count(j) && m[j] > i) // 判断是否存在该字符且该字符的索引大于当前索引
+                if (m.count(j) && m[j] > i) // 判断哈希表m中是否存在该字符且该字符的索引大于当前索引
                 {
                     swap(nums[i], nums[m[j]]); // swap()时间复杂度O(1)，空间复杂度O(1)
                     return stoi(nums);         // stoi()时间复杂度O(n)，空间复杂度O(1)
@@ -36,7 +36,7 @@ public:
                 }
             }
         }
-        return num;
+        return num; // 如果没有交换，直接返回数字
     }
 };
 // @lc code=end
