@@ -6,7 +6,7 @@
 
 // @lc code=start
 /*
-code1 binary search + preSum
+code1 binary search 
 查询区间内第一次出现蜡烛的位置和最后一次出现蜡烛的位置之间的距离-这个区间内蜡烛数目
 */
 class Solution
