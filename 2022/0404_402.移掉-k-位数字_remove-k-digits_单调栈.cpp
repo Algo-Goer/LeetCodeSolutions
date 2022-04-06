@@ -27,7 +27,7 @@ public:
         string st;
         for (char c : num)
         {
-            while (k > 0 && !st.empty() & c < st.back())
+            while (k > 0 && !st.empty() && c < st.back())
             {
                 st.pop_back();
                 k--;
