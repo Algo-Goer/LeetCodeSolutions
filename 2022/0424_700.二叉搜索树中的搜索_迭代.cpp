@@ -1,0 +1,36 @@
+/*
+ * @lc app=leetcode.cn id=700 lang=cpp
+ *
+ * [700] 二叉搜索树中的搜索
+ */
+
+// @lc code=start
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+// code2 迭代
+
+class Solution
+{
+public:
+    TreeNode *searchBST(TreeNode *root, int val)
+    {
+        while (root)
+        {
+            if (val == root->val)
+                return root;
+            root = val < root->val ? root->left : root->right;
+        }
+        return nullptr;
+    }
+};
+// @lc code=end
