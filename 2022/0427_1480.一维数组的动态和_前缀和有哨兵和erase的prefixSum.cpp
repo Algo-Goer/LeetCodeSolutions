@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-// code2 prefixSum
+// code2 prefixSum 写法一
 class Solution
 {
 public:
@@ -18,7 +18,7 @@ public:
             prefixSum[i + 1] = prefixSum[i] + nums[i];
         }
         // 删除第一个元素
-        prefixSum.erase(prefixSum.begin()); // erase()时间复杂度O(1)
+        prefixSum.erase(prefixSum.begin()); // erase()时间复杂度O(n)
         return prefixSum;
     }
 };
