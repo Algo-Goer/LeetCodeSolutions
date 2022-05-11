@@ -23,45 +23,28 @@
 - 下标 5 处的平均差为：|(2 + 5 + 3 + 9 + 5 + 3) / 6 - 0| = |27 / 6 - 0| = |4 - 0| = 4 。
 下标 3 处的平均差为最小平均差，所以返回 3 。
 */
-// prefixSum
+// code3 prefixSum 学习TOP1-zankizero的代码
 class Solution
 {
 public:
     int minimumAverageDifference(vector<int> &nums)
     {
-        // 求每个下标的平均值
         int n = nums.size();
-        if (n == 1)
-            return 0;
-        vector<long> sums(n + 1, 0);
-        vector<long> avg1(n + 1, 0);
-        vector<long> avg2(n + 1, 0);
+        typedef long long ll;
+        vector<ll> pre(n), suf(n);
+        pre[0] = nums[0];
+        for (int i = 1; i < n; ++i)
+            pre[i] = pre[i - 1] + nums[i];
+        for (int i = n - 2; ~i; --i)
+            suf[i] = suf[i + 1] + nums[i + 1];
+        int pos = 0;
+        ll ret = LLONG_MAX;
         for (int i = 0; i < n; ++i)
         {
-            sums[i + 1] = (long)sums[i] + (long)nums[i];
+            ll tmp = abs(pre[i] / (i + 1) - (i + 1 == n ? 0 : suf[i] / (n - i - 1)));
+            if (tmp < ret)
+                ret = tmp, pos = i;
         }
-        long minV = INT_MAX;
-        for (int i = 0; i < n - 1; ++i)
-        {
-            avg1[i + 1] = sums[i + 1] / (i + 1);
-            avg2[i + 1] = (sums[n] - sums[i + 1]) / (n - i - 1);
-        }
-        int i;
-        if (int i = n - 1)
-        {
-            avg1[n] = sums[n] / n;
-            avg2[n] = 0;
-        }
-        for (int i = 0; i < n; ++i)
-        {
-            minV = min(minV, abs(avg1[i + 1] - avg2[i + 1]));
-        }
-        // 返回minV对应下标i
-        for (int i = 0; i < n; ++i)
-        {
-            if (abs(avg1[i + 1] - avg2[i + 1]) == minV)
-                return i;
-        }
-        return -1;
+        return pos;
     }
 };

@@ -16,7 +16,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-// code3 不需要反复计算深度，一次遍历
+// code3 不需要反复计算深度，一次DFS遍历
 class Solution
 {
 private:
