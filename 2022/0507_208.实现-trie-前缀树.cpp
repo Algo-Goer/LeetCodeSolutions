@@ -15,7 +15,7 @@ private:
         TrieNode() : isEnd(false), children(26, NULL) {}
     };
 
-    shared_ptr<TrieNode> findPrefix(string &prefix)
+    shared_ptr<TrieNode> findPrefix(string &prefix) // 没有&也可以AC
     {
         auto node = root;
         for (int i = 0; i < prefix.size() && node != NULL; ++i) // node != NULL表示前缀树中还有剩余节点
